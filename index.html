@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f5">
+<title>A Little Apology For You ♡</title>
+<style>
+  :root { --pink:#ff6f9f; --deep:#a83f68; --ink:#5d3547; --paper:#fffafd; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; min-height:100vh; color:var(--ink);
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background: radial-gradient(circle at top left,#ffe1ed 0,transparent 42%),
+                radial-gradient(circle at bottom right,#ffe8f0 0,transparent 38%), #fff8fb;
+    overflow-x:hidden;
+  }
+  .floaties { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+  .heart { position:absolute; bottom:-40px; opacity:.55; animation: rise linear infinite; color:#f28bad; }
+  @keyframes rise { from { transform:translateY(0) rotate(0); opacity:0; } 15%{opacity:.55} to { transform:translateY(-115vh) rotate(25deg); opacity:0; } }
+  main { position:relative; z-index:1; width:min(92%,680px); margin:auto; padding:28px 0 46px; }
+  .pill { display:inline-block; padding:7px 13px; border:1px solid #ffd0df; border-radius:99px; background:#ffffffb8; font-size:.83rem; }
+  .hero { text-align:center; padding:28px 10px 22px; }
+  .big-heart { font-size:3.2rem; animation: beat 1.4s ease-in-out infinite; display:inline-block; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+  h1 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(2.25rem,8vw,4rem); line-height:1.05; margin:15px 0 12px; color:var(--deep); font-weight:700; }
+  .subtitle { font-size:1.04rem; line-height:1.7; max-width:490px; margin:0 auto; }
+  .card { background:#ffffffd9; border:1px solid #ffe0ea; box-shadow:0 12px 34px #bd55751a; border-radius:24px; padding:22px; margin:16px 0; backdrop-filter:blur(8px); }
+  h2 { font-family:Georgia,"Times New Roman",serif; color:var(--deep); margin:0 0 12px; font-size:1.65rem; }
+  p { line-height:1.75; margin:10px 0; }
+  .buttons { display:grid; gap:10px; margin-top:17px; }
+  button { border:0; border-radius:15px; padding:14px 17px; font:inherit; font-weight:650; cursor:pointer; min-height:48px; transition:transform .15s,filter .15s; }
+  button:active { transform:scale(.98); }
+  .primary { background:linear-gradient(135deg,#ff83aa,#f45e92); color:white; box-shadow:0 7px 18px #f45e9230; }
+  .secondary { background:#fff0f5; color:#a83f68; border:1px solid #ffd3e1; }
+  .hidden { display:none; }
+  .reveal { margin-top:14px; padding:16px; border-radius:16px; background:#fff2f7; border:1px dashed #f6a6c0; animation: pop .35s ease-out; }
+  @keyframes pop { from{opacity:0;transform:translateY(7px)} to{opacity:1;transform:translateY(0)} }
+  .tiny { font-size:.88rem; opacity:.8; }
+  .signature { font-family:Georgia,"Times New Roman",serif; font-size:1.3rem; color:var(--deep); }
+  footer { text-align:center; padding:18px 8px 0; font-size:.85rem; opacity:.75; }
+  .name { color:#c14f7a; font-weight:750; }
+  @media (min-width:560px) { .buttons.two { grid-template-columns:1fr 1fr; } .card{padding:28px;} }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+<div class="floaties" id="floaties" aria-hidden="true"></div>
+<main>
+  <section class="hero">
+    <span class="pill">a little page, made with care ♡</span>
+    <div class="big-heart" aria-hidden="true">💗</div>
+    <h1>Hey, my favourite person.</h1>
+    <p class="subtitle">I made this little corner of the internet because there are a few things I want to say properly.</p>
+    <div class="buttons">
+      <button class="primary" onclick="showSection('letter')">Open your little letter 💌</button>
+      <button class="secondary" onclick="showSection('surprises')">There are tiny surprises too ✨</button>
+    </div>
+  </section>
+
+  <section class="card hidden" id="letter">
+    <h2>I'm sorry. Truly. 🥺</h2>
+    <p>I'm sorry for <span class="name">[write what you did here]</span> and for how it made you feel. I don't want to brush it off or make excuses.</p>
+    <p>You matter to me, and I should have handled things better. I'm going to try to show that through my actions, not just these words.</p>
+    <p>You don't have to forgive me right away, and you don't owe me a particular response. I just wanted to own my mistake and say that I'm genuinely sorry.</p>
+    <p>Whenever you're ready, I'd like to listen and understand your side too. ♡</p>
+    <p class="signature">With care, <span class="name">[your name]</span></p>
+    <p class="tiny">Tip: edit the bracketed parts before publishing so this sounds like you.</p>
+  </section>
+
+  <section class="card hidden" id="surprises">
+    <h2>Pick a tiny surprise 🎀</h2>
+    <p>No pressure, just a few little things to make you smile.</p>
+    <div class="buttons two">
+      <button class="secondary" onclick="reveal('memory')">A little reminder 🌷</button>
+      <button class="secondary" onclick="reveal('compliment')">Something I appreciate 💖</button>
+      <button class="secondary" onclick="reveal('wish')">A tiny wish for you ☁️</button>
+      <button class="secondary" onclick="reveal('hug')">A virtual hug 🧸</button>
+    </div>
+    <div class="reveal hidden" id="memory" aria-live="polite">One of my favourite things is <strong>[add a real memory you share]</strong>. I hope it makes you smile too. 🌷</div>
+    <div class="reveal hidden" id="compliment" aria-live="polite">I appreciate the way you <strong>[add something genuine you appreciate about her]</strong>. It's one of those little things that means a lot to me. 💖</div>
+    <div class="reveal hidden" id="wish" aria-live="polite">I hope your day brings you a peaceful moment, a real laugh, and a reason to feel loved — whatever you need most. ☁️</div>
+    <div class="reveal hidden" id="hug" aria-live="polite">Sending you the gentlest virtual hug. No pressure to reply — just a little warmth from me to you. 🧸💗</div>
+  </section>
+
+  <section class="card">
+    <h2>One last thing… 💌</h2>
+    <p>I can't undo what happened with a website. I can only be honest, listen, respect how you feel, and do better where I need to.</p>
+    <button class="primary" style="width:100%" onclick="showSection('final-note'); makeConfetti()">Open the final note ✨</button>
+    <div class="reveal hidden" id="final-note" aria-live="polite">
+      <p><strong>You don't have to answer this right now.</strong></p>
+      <p>Thank you for reading. Whatever you feel, I'll respect it. I'm sorry, and I mean it. ♡</p>
+      <div style="text-align:center;font-size:1.7rem">🌸 💗 🌸</div>
+    </div>
+  </section>
+  <footer>made with care, not pressure ♡</footer>
+</main>
+<script>
+  const floaties = document.getElementById('floaties');
+  for (let i=0; i<17; i++) {
+    const h = document.createElement('span');
+    h.className='heart'; h.textContent = ['♡','♥','✧','💕'][i%4];
+    h.style.left = (Math.random()*100)+'%';
+    h.style.animationDuration = (9+Math.random()*11)+'s';
+    h.style.animationDelay = (-Math.random()*18)+'s';
+    h.style.fontSize = (15+Math.random()*20)+'px';
+    floaties.appendChild(h);
+  }
+  function showSection(id) {
+    const el=document.getElementById(id);
+    el.classList.remove('hidden');
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function reveal(id) {
+    document.querySelectorAll('#surprises .reveal').forEach(el=>el.classList.add('hidden'));
+    const el=document.getElementById(id);
+    el.classList.remove('hidden');
+  }
+  function makeConfetti() {
+    const symbols=['💗','🌸','✨','♡'];
+    for(let i=0;i<18;i++){
+      const s=document.createElement('span');
+      s.textContent=symbols[i%symbols.length];
+      s.style.cssText=`position:fixed;z-index:5;left:${Math.random()*100}vw;top:-30px;font-size:${16+Math.random()*15}px;pointer-events:none;transition:transform 2.2s ease-in,opacity 2.2s;`;
+      document.body.appendChild(s);
+      requestAnimationFrame(()=>{s.style.transform=`translateY(${70+Math.random()*80}vh) rotate(${Math.random()*360}deg)`;s.style.opacity='0';});
+      setTimeout(()=>s.remove(),2400);
+    }
+  }
+</script>
+</body>
+</html>
